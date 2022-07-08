@@ -1,7 +1,11 @@
 @import '../../components/common/styles/LayerCard.scss';
 
 .TraitList {
-  margin: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 1.65rem;
+  flex-wrap: wrap;
   padding: 0.25rem;
   @include LayerCard2;
+  flex-grow: 1;
 }
