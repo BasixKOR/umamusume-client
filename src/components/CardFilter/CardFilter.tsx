@@ -30,28 +30,28 @@ const CardFilter: React.FC<{}> = () => {
     <div>
       <div className={`CardFilter`}>
         <TraitDropdown
-          items={stats}
+          items={traitData}
           type="status"
           onChange={(_, v) =>
             v && dispatch({ type: 'add', trait: { name: v, type: 'status' } })
           }
         />
         <TraitDropdown
-          items={stats}
+          items={traitData}
           type="aptitude"
           onChange={(_, v) =>
             v && dispatch({ type: 'add', trait: { name: v, type: 'aptitude' } })
           }
         />
         <TraitDropdown
-          items={stats}
+          items={traitData}
           type="unique"
           onChange={(_, v) =>
             v && dispatch({ type: 'add', trait: { name: v, type: 'unique' } })
           }
         />
         <TraitDropdown
-          items={stats}
+          items={traitData}
           type="common"
           onChange={(_, v) =>
             v && dispatch({ type: 'add', trait: { name: v, type: 'common' } })
@@ -70,6 +70,20 @@ const CardFilter: React.FC<{}> = () => {
   );
 };
 
-const stats = ['스킬1', '스킬2', '스킬3'];
+const traitData = [
+  '우마무스메 애호가',
+  '꼬리의 폭포오르기',
+  '마일의 지배자',
+  '장거리 코너◎',
+  '두려워하지 않는 마음',
+  '전개 살피기',
+  '신들린 스텝',
+  '하교 후의 스페셜리스트',
+  '파란주의포!',
+  '불침함, 출항!!',
+  '오퍼레이션 Cacao',
+  '∴win Q.E.D.',
+  'G00 1st.F∞;',
+];
 
 export default CardFilter;
