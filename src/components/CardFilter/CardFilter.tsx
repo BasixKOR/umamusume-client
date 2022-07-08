@@ -18,6 +18,12 @@ const CardFilter: React.FC<{}> = () => {
           state.filter((x) => x.type === action.trait.type).length >= 3
         )
           return state;
+        if (
+          state.some(
+            (x) => x.name === action.trait.name && x.type === action.trait.type
+          )
+        )
+          return state;
         return [...state, action.trait];
       case 'remove':
         return state.filter((_, i) => i !== action.index);
@@ -58,19 +64,28 @@ const CardFilter: React.FC<{}> = () => {
           }
         />
       </div>
-      <TraitList>
-        {traits.map((trait, index) => (
-          <TraitDetail
-            trait={trait}
-            onClick={() => dispatch({ type: 'remove', index })}
-          />
-        ))}
-      </TraitList>
+      <div className={`TraitListWrapper`}>
+        <TraitList>
+          {traits.map((trait, index) => (
+            <TraitDetail
+              trait={trait}
+              onClick={() => dispatch({ type: 'remove', index })}
+            />
+          ))}
+        </TraitList>
+        <button onClick={() => dispatch({ type: 'clear' })}>클리어</button>
+      </div>
     </div>
   );
 };
 
 const traitData = [
+  '스태미나',
+  '파워',
+  '단거리',
+  '마일',
+  '더트',
+  '장거리',
   '우마무스메 애호가',
   '꼬리의 폭포오르기',
   '마일의 지배자',
